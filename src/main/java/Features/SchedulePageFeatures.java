@@ -10,9 +10,19 @@ public class SchedulePageFeatures {
 	private WebDriver driver=null;
 	private SchedulePage scpage;
 	
-	public void PerformSearch() {
+	public void PerformSearch() throws InterruptedException {
 		scpage.getLocationDropdown().click();
-		scpage.getLo
+		Thread.sleep(1000);
+		scpage.getPortLandLocation().click();
+		Thread.sleep(1000);
+		scpage.getServiceDropdown().click();
+		Thread.sleep(1000);
+		scpage.getIllnessInjuryService().click();
+		Thread.sleep(1000);
+		scpage.getDateDropdown().click();
+		Thread.sleep(1000);
+		scpage.getDayAfterTommorrowDate().click();
+		Thread.sleep(1000 );
 	}
 	
 	public SchedulePageFeatures() {
@@ -21,5 +31,9 @@ public class SchedulePageFeatures {
 		scpage=new SchedulePage(driver);
 		// TODO Auto-generated constructor stub
 		
+	}
+	
+	public SchedulePage returnSchedulePage() {
+		return scpage;
 	}
 }
